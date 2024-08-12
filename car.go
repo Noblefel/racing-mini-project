@@ -44,19 +44,17 @@ func (c *Car) writeCar() {
 	rightPad := strings.Repeat(" ", bounds-c.pos)
 
 	for _, s := range template {
-		c.sb.WriteString("\n")
 		c.sb.WriteString(leftPad)
 		c.sb.WriteString(s)
 		c.sb.WriteString(rightPad)
+		c.sb.WriteString("\n")
 	}
-
-	c.sb.WriteString("\n")
 }
 
 func (c Car) Stat() {
-	c.sb.WriteString(fmt.Sprintf("\n%s	| Laps: %d	| Speed: %d",
+	fmt.Fprintf(c.sb, "%s	| Laps: %d	| Speed: %d\n",
 		c.name,
 		c.laps,
 		c.speed,
-	))
+	)
 }

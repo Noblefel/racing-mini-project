@@ -32,20 +32,22 @@ func main() {
 		os.Exit(1)
 	}()
 
+	border := strings.Repeat("-", bounds+10) + "\n"
+
 	fmt.Print("\033[J\n")
 	for {
-		sb.WriteString(strings.Repeat("-", bounds+10))
+		sb.WriteString(border)
 		car1.Stat()
 		car1.Move()
-		sb.WriteString(strings.Repeat("-", bounds+10))
+		sb.WriteString(border)
 		car2.Stat()
 		car2.Move()
-		sb.WriteString(strings.Repeat("-", bounds+10))
+		sb.WriteString(border)
 		car3.Stat()
 		car3.Move()
-		sb.WriteString(strings.Repeat("-", bounds+10))
+		sb.WriteString(border)
 
-		sb.WriteString("\npress enter to end the race\n")
+		sb.WriteString("press enter to end the race\n")
 		sb.WriteString("\033[20A")
 		fmt.Print(sb.String())
 		sb.Reset()
